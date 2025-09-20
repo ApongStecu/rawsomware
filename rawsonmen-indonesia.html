@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RAWSONMEN SYSTEM</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+      text-align: center;
+    }
+    #console {
+      white-space: pre-line;
+      font-size: 14px;
+      text-align: left;
+      margin-top: 20px;
+    }
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: red;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay">⚡ Klik layar untuk create mt⚡</div>
+
+  <h1 style="color:red;">🔥 RAWSONMEN HACK INDONESIA 🔥</h1>
+  <p>System Locked! Anda tidak bisa keluar 🤡</p>
+  <div id="console"></div>
+
+  <!-- Musik idiot -->
+  <audio id="prankSound" loop>
+    <source src="https://www.myinstants.com/media/sounds/you-are-an-idiot.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const prankSound = document.getElementById("prankSound");
+    const consoleDiv = document.getElementById("console");
+    const overlay = document.getElementById("overlay");
+
+    const lines = [
+      "[localhost] Accessing system...",
+      "[localhost] Injecting Rawsonmen payload...",
+      "[localhost] Overriding firewall...",
+      "[localhost] Extracting data...",
+      "[localhost] System Compromised!",
+      "[localhost] RAWSONMEN ACTIVE..."
+    ];
+
+    function startPrank() {
+      // masuk fullscreen
+      let elem = document.documentElement;
+      if (elem.requestFullscreen) elem.requestFullscreen();
+      else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+      else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
+      else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
+
+      // mulai musik
+      prankSound.play();
+
+      // alert spam
+      setInterval(() => {
+        alert("⚠ RAWSONMEN WARNING ⚠\nAnda sudah di-hack!");
+      }, 300);
+
+      // spam teks
+      setInterval(() => {
+        const line = lines[Math.floor(Math.random() * lines.length)];
+        consoleDiv.innerHTML += line + "\n";
+        consoleDiv.scrollTop = consoleDiv.scrollHeight;
+      }, 200);
+
+      // hapus overlay
+      overlay.style.display = "none";
+    }
+
+    overlay.addEventListener("click", startPrank);
+  </script>
+</body>
+</html>
